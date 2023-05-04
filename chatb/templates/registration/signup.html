@@ -1,0 +1,22 @@
+{% extends 'default.html' %}
+
+{% block title %}
+Sign up
+{% endblock title %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <p>&nbsp;</p>
+        <h4><p>You are already logged in as {{ user.username }}!</p></h4>
+        <p>&nbsp;</p>
+    {% else %}
+        <h2>Sign up</h2>
+        <hr>
+        <p>&nbsp;</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit"  value="Sing up">
+        </form>
+    {% endif %}
+{% endblock content %}
